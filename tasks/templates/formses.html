@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body><center>
+<h1> Forms:  </h1>
+<form action="/contacts" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <div>
+        {% if form.a.errors %}
+            {% for err_a in form.a.errors %}
+                <p>Name {{ err_a | escape }}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% if form.b.errors %}
+            {% for err_b in form.b.errors %}
+                <p>Email {{ err_b | escape }}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% if form.Images.errors %}
+        {% for err_image in form.Images.errors %}
+        <p>Images {{ err_image | escape }}</p>
+        {% endfor %}
+        {% endif %}
+
+        {% if form.c.errors %}
+            {% for err_c in form.c.errors %}
+                <p>Message {{ err_c | escape }}</p>
+            {% endfor %}
+        {% endif %}
+
+        {{ form.label_tag }}
+        {{ form.as_p }}
+
+
+    </div>
+    <button type="submit">Submit</button>
+        </center>
+</form>
+</body>
+</html>
