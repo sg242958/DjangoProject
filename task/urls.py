@@ -16,16 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from tasks import views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.signup, name='signup'),
     path('login', views.Login, name='Login'),
     path('signup', views.signup, name='signup'),
-    path('shivam/<str:data>/<str:id>', views.shivam, name='shivam'),
-    path('st/', views.st, name='st'),
-    path('classes', views.classes.as_view(), name='classes'),
-    path('tempform', views.tempform.as_view(), name='tempform'),
-    path('tata', views.tata, name='tata'),
-    path('contacts', views.contactform, name='contacts'),
+    path('login/see', views.see, name='see'),
 ]
